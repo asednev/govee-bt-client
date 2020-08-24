@@ -37,5 +37,5 @@ setTimeout(async () => {
 ## Credits
 Credits and thanks to
 
-* [Thrilleratplay/GoveeWatcher](https://github.com/Thrilleratplay/GoveeWatcher) for explanation and examples of how to decode advertisement data for Govee G5075.
+* [Thrilleratplay/GoveeWatcher](https://github.com/Thrilleratplay/GoveeWatcher) for explanation and examples of how to decode advertisement data for Govee H5075.
 * [@abandonware/noble](https://github.com/abandonware/noble) for a great BLE library for node

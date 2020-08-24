@@ -39,7 +39,6 @@ const decodeValues = (streamUpdate) => {
 };
 let currentCallback;
 noble_1.default.on('discover', async (peripheral) => {
-    // await noble.stopScanningAsync();
     const { id, uuid, address, state, rssi, advertisement } = peripheral;
     if (DEBUG) {
         console.log('discovered', id, uuid, address, state, rssi);
@@ -52,12 +51,16 @@ noble_1.default.on('discover', async (peripheral) => {
         // await startDiscovery();
         return;
     }
-    const streamUpdate = advertisement.manufacturerData.toString('hex');
+    const { localName, manufacturerData } = advertisement;
+    const streamUpdate = manufacturerData.toString('hex');
     if (DEBUG) {
         console.log(`${id}: ${streamUpdate}`);
     }
     const decodedValues = decodeValues(streamUpdate);
     const current = {
+        uuid,
+        address,
+        model: localName,
         battery: decodedValues.battery,
         humidity: decodedValues.humidity,
         tempInC: decodedValues.tempInC,

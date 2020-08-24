@@ -41,8 +41,6 @@ let currentCallback: undefined | ((reading: GoveeReading) => void);
 
 noble.on('discover', async (peripheral) => {
 
-    // await noble.stopScanningAsync();
-
     const { id, uuid, address, state, rssi, advertisement } = peripheral;
     if (DEBUG) { console.log('discovered', id, uuid, address, state, rssi); }
 
@@ -52,13 +50,18 @@ noble.on('discover', async (peripheral) => {
         return;
     }
 
-    const streamUpdate = advertisement.manufacturerData.toString('hex');
+    const { localName, manufacturerData } = advertisement;
+
+    const streamUpdate = manufacturerData.toString('hex');
 
     if (DEBUG) { console.log(`${id}: ${streamUpdate}`); }
 
     const decodedValues = decodeValues(streamUpdate);
 
     const current: GoveeReading = {
+        uuid,
+        address,
+        model: localName,
         battery: decodedValues.battery,
         humidity: decodedValues.humidity,
         tempInC: decodedValues.tempInC,
@@ -90,7 +93,10 @@ export const stopDiscovery = async () => {
 }
 
 
-type GoveeReading = {
+export type GoveeReading = {
+    uuid: string,
+    address: string,
+    model: string
     tempInC: number,
     tempInF: number,
     humidity: number,
