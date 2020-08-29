@@ -28,7 +28,7 @@ const decodeValues = (streamUpdate) => {
     const encodedData = parseInt(streamUpdate.substring(6, 12), 16);
     const battery = parseInt(streamUpdate.substring(12, 14), 16);
     const tempInC = encodedData / 10000;
-    const tempInF = (tempInC * 5 / 9) + 32;
+    const tempInF = (tempInC * 9 / 5) + 32;
     const humidity = (encodedData % 1000) / 10;
     return {
         battery,
