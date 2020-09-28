@@ -1,6 +1,6 @@
 {
   "name": "govee-bt-client",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Govee H5075 Thermometer Hygrometer Bluetooth Client",
   "main": "index.js",
   "types": "index.d.ts",

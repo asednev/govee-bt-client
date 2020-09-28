@@ -5,16 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stopDiscovery = exports.startDiscovery = exports.debug = void 0;
 const noble_1 = __importDefault(require("@abandonware/noble"));
+process.env.NOBLE_REPORT_ALL_HCI_EVENTS = '1'; // needed on Linux including Raspberry Pi
 const h5075_uuid = "ec88";
 const h5075_uuid_rev = "88ec";
 const govee_bt_mac = "a4-c1-38";
+const govee_bt_mac_alt = "a4:c1:38";
 let DEBUG = false;
 const validPeripheral = (peripheral) => {
     const { address, advertisement } = peripheral;
     if (!advertisement || !advertisement.manufacturerData) {
         return false;
     }
-    if (address && !address.toLowerCase().startsWith(govee_bt_mac)) {
+    if (address && (!address.toLowerCase().startsWith(govee_bt_mac) && !address.toLowerCase().startsWith(govee_bt_mac_alt))) {
         return false;
     }
     const hex = advertisement.manufacturerData.toString('hex');
