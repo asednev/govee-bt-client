@@ -1,8 +1,13 @@
-# Govee H5075 Bluetooth Client
+# Govee H5xxx Bluetooth Client
 [![npm version](https://badge.fury.io/js/govee-bt-client.svg)](https://badge.fury.io/js/govee-bt-client)
 
-A library to listen for the BLE (Bluetooth Low Energy) broadcasts from Govee H5075 Thermometer Hygrometer. Requires a compatible bluetooth module and operating system (see [prepequisites](https://github.com/abandonware/noble#prerequisites)).
+A library to listen for the BLE (Bluetooth Low Energy) broadcasts from Govee Thermometer Hygrometer devices. Requires a compatible bluetooth module and operating system (see [prepequisites](https://github.com/abandonware/noble#prerequisites)).
 
+Supported devices: 
+- H5072
+- H5075
+- H5101
+- H5102
 ## Installation
 
 `npm install govee-bt-client`
@@ -39,4 +44,5 @@ setTimeout(async () => {
 Credits and thanks to
 
 * [Thrilleratplay/GoveeWatcher](https://github.com/Thrilleratplay/GoveeWatcher) for explanation and examples of how to decode advertisement data for Govee H5075.
+* [Home-Is-Where-You-Hang-Your-Hack/sensor.goveetemp_bt_hci](https://github.com/Home-Is-Where-You-Hang-Your-Hack/sensor.goveetemp_bt_hci) for explanation and examples of advertisement data for various Govee devices.
 * [@abandonware/noble](https://github.com/abandonware/noble) for a great BLE library for node

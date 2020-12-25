@@ -11,4 +11,4 @@ startDiscovery((reading) => {
 setTimeout(async () => {
     await stopDiscovery();
     console.log("=== stop discovery");
-}, 30000);
+}, 60000);
