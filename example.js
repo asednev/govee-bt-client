@@ -9,4 +9,4 @@ index_1.startDiscovery((reading) => {
 setTimeout(async () => {
     await index_1.stopDiscovery();
     console.log("=== stop discovery");
-}, 30000);
+}, 60000);
