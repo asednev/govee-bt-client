@@ -3,27 +3,30 @@ name: Build and Test
 on: [push, pull_request]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        # the Node.js versions to build on
-        node-version: [14.x]
+        strategy:
+            matrix:
+                # the Node.js versions to build on
+                node-version: [14.x]
 
-    steps:
-      - uses: actions/checkout@v2
+        steps:
+            - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }} 
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
+            - name: Install dependencies
+              run: npm install
 
-      - name: Build the project
-        run: npm run build
+            - name: Lint the project
+              run: npm run lint
 
-      - name: Test the project
-        run: npm test
+            - name: Build the project
+              run: npm run build
+
+            - name: Test the project
+              run: npm run test:ci

@@ -6,9 +6,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "tsc --watch",
-    "build": "tsc",
+    "build": "rimraf ./dist && tsc",
     "dev": "tsc && node dist/example.js",
+    "lint": "prettier -c src/**/*.ts",
     "test": "jest",
+    "test:ci": "jest --ci",
     "test:watch": "jest --watch"
   },
   "author": "Alexey Sednev",
@@ -30,6 +32,8 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.6.0",
     "jest": "^26.6.3",
+    "prettier": "2.2.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.4.4"
   }
 }
