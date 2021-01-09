@@ -1,6 +1,7 @@
 import noble from "@abandonware/noble";
 import { isHt5075, isHt5101, isValidPeripheral } from "./validation";
 import { decodeAny } from "./decode";
+import { GoveeReading } from "./goveeReading";
 
 process.env.NOBLE_REPORT_ALL_HCI_EVENTS = "1"; // needed on Linux including Raspberry Pi
 
@@ -68,13 +69,4 @@ export const stopDiscovery = async () => {
     currentCallback = undefined;
 };
 
-export type GoveeReading = {
-    uuid: string;
-    address: string;
-    model: string;
-    tempInC: number;
-    tempInF: number;
-    humidity: number;
-    battery: number;
-    rssi: number;
-};
+export * from "./goveeReading";
