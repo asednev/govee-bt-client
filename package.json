@@ -10,6 +10,7 @@
     "dev": "tsc && node dist/example.js",
     "lint": "prettier -c src/**/*.ts",
     "test": "jest",
+    "test:ci": "jest --ci",
     "test:watch": "jest --watch"
   },
   "author": "Alexey Sednev",
