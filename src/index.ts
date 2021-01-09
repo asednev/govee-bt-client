@@ -1,31 +1,12 @@
 import noble from '@abandonware/noble';
+import { isHt5075, isHt5101, isValidPeripheral } from './validation';
+
 process.env.NOBLE_REPORT_ALL_HCI_EVENTS = '1'; // needed on Linux including Raspberry Pi
 
 const h5075_uuid = "ec88";
-const h5075_uuid_rev = "88ec";
-const h5101_uuid_rev = "0100"; 
-
-const govee_bt_mac = "a4-c1-38";
-const govee_bt_mac_alt = "a4:c1:38";
+const h5101_uuid = "0001";
 
 let DEBUG = false;
-
-
-const isHt5075 = (hex: string) => hex.includes(h5075_uuid_rev); // Govee H5072/H5075
-const isHt5101 = (hex: string) => hex.includes(h5101_uuid_rev); // Govee H5101/H5102
-
-const isValidPeripheral = (peripheral: noble.Peripheral) => {
-
-    const { address, advertisement } = peripheral;
-
-    if (!advertisement || !advertisement.manufacturerData) { return false; }
-    if (address && (!address.toLowerCase().startsWith(govee_bt_mac) && !address.toLowerCase().startsWith(govee_bt_mac_alt))) { return false; }
-
-    const hex = advertisement.manufacturerData.toString('hex');
-    if (!isHt5075(hex) && !isHt5101(hex)) { return false; }
-
-    return true;
-}
 
 const decodeH5075Values = (streamUpdate: string) => {
 
@@ -106,7 +87,7 @@ export const startDiscovery = async (callback: (reading: GoveeReading) => void) 
 
     currentCallback = callback;
 
-    await noble.startScanningAsync([h5075_uuid], true);
+    await noble.startScanningAsync([h5075_uuid, h5101_uuid], true);
 
 }
 
