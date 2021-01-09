@@ -1,6 +1,6 @@
 {
   "name": "govee-bt-client",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Govee H5xxx Thermometer Hygrometer Bluetooth Client",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,8 @@
     "lint": "prettier -c src/**/*.ts",
     "test": "jest",
     "test:ci": "jest --ci",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "author": "Alexey Sednev",
   "license": "MIT",
