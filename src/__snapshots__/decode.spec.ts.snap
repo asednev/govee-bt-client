@@ -1,50 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`decode from any supported device 1`] = `
-Object {
-  "battery": 88,
-  "humidity": 51,
-  "tempInC": 18.351,
-  "tempInF": 65.0318,
-}
-`;
-
-exports[`decode from any supported device 2`] = `
-Object {
-  "battery": 64,
-  "humidity": 49.6,
-  "tempInC": 19.6496,
-  "tempInF": 67.36928,
-}
-`;
-
-exports[`decode from any supported device 3`] = `
-Object {
-  "battery": 88,
-  "humidity": 45.3,
-  "tempInC": 21.7453,
-  "tempInF": 71.14153999999999,
-}
-`;
-
-exports[`decode from any supported device 4`] = `
-Object {
-  "battery": 95,
-  "humidity": 95.3,
-  "tempInC": 19.8953,
-  "tempInF": 67.81154,
-}
-`;
-
-exports[`decode from any supported device 5`] = `
-Object {
-  "battery": 100,
-  "humidity": 32.5,
-  "tempInC": 20.2325,
-  "tempInF": 68.41850000000001,
-}
-`;
-
 exports[`test matrix decode from any supported device 1`] = `
 Object {
   "battery": 88,
