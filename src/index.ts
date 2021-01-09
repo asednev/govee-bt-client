@@ -20,7 +20,11 @@ noble.on("discover", async (peripheral) => {
 
     if (!isValidPeripheral(peripheral)) {
         if (DEBUG) {
-            console.log("invalid peripheral, scan for another");
+            let mfgData;
+            if (advertisement.manufacturerData) {
+                mfgData = advertisement.manufacturerData.toString("hex");
+            }
+            console.log(`invalid peripheral, manufacturerData=[${mfgData}]`);
         }
         return;
     }

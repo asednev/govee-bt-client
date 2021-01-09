@@ -7,7 +7,7 @@
   "scripts": {
     "start": "tsc --watch",
     "build": "rimraf ./dist && tsc",
-    "dev": "tsc && node dist/example.js",
+    "dev": "rimraf ./dist && tsc && node dist/example.js",
     "lint": "prettier -c src/**/*.ts",
     "test": "jest",
     "test:ci": "jest --ci",
