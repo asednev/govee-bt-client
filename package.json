@@ -8,6 +8,7 @@
     "start": "tsc --watch",
     "build": "tsc",
     "dev": "tsc && node dist/example.js",
+    "lint": "prettier -c src/**/*.ts",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -30,6 +31,7 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.6.0",
     "jest": "^26.6.3",
+    "prettier": "2.2.1",
     "ts-jest": "^26.4.4"
   }
 }
