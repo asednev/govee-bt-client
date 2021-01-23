@@ -25,8 +25,11 @@ export const isValidPeripheral = (peripheral: noble.Peripheral) => {
     if (
         address &&
         !govee_bt_mac_allowlist.some((x) => {
-            const prefix = x.replace(/:/g, '');
-            const mac = address.toLowerCase().replace(/:/g, '').replace(/-/g, '');
+            const prefix = x.replace(/:/g, "");
+            const mac = address
+                .toLowerCase()
+                .replace(/:/g, "")
+                .replace(/-/g, "");
             return mac.startsWith(prefix);
         })
     ) {
