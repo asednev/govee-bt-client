@@ -1,6 +1,6 @@
 {
   "name": "govee-bt-client",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Govee H5xxx Thermometer Hygrometer Bluetooth Client",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,6 +19,7 @@
   "keywords": [
     "Govee",
     "H5072",
+    "H5074",
     "H5075",
     "H5101",
     "H5102",
