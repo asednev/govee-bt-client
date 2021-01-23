@@ -1,5 +1,23 @@
-import { decodeH5075Values, decodeH5101Values, decodeAny } from "./decode";
+import { decodeH5074Values, decodeH5075Values, decodeH5101Values, decodeAny } from "./decode";
 import { validationMatrix } from "./validationMatrix";
+
+it("should decode H5074 values", () => {
+    
+     // sources: https://github.com/wcbonner/GoveeBTTempLogger/blob/master/goveebttemplogger.cpp#L206
+     //          https://github.com/neilsheps/GoveeTemperatureAndHumidity
+     // 88EC00 0902 CD15 64 02 (Temp) 41.378°F (Humidity) 55.81% (Battery) 100%
+     //                                5.21 C
+     const hex = "88EC000902CD156402";
+     const expectedReading = {
+        battery: 100,
+        humidity: 55.81,
+        tempInC: 5.21,
+        tempInF: 41.378,
+    };
+    const reading = decodeH5074Values(hex);
+    expect(reading).toMatchObject(expectedReading);
+    
+});
 
 it("should decode H5075 values", () => {
     const hex = "88ec000368d15800";

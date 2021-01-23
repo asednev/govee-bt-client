@@ -44,3 +44,21 @@ Object {
   "tempInF": 68.41850000000001,
 }
 `;
+
+exports[`test matrix decode from any supported device 6`] = `
+Object {
+  "battery": 100,
+  "humidity": 55.81,
+  "tempInC": 5.21,
+  "tempInF": 41.378,
+}
+`;
+
+exports[`test matrix decode from any supported device 7`] = `
+Object {
+  "battery": 100,
+  "humidity": 54.3,
+  "tempInC": 11.63,
+  "tempInF": 52.934,
+}
+`;
