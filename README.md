@@ -5,6 +5,7 @@ A library to listen for the BLE (Bluetooth Low Energy) broadcasts from Govee The
 
 Supported devices: 
 - H5072
+- H5074
 - H5075
 - H5101
 - H5102

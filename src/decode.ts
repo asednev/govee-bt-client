@@ -1,4 +1,27 @@
-import { isHt5075 } from "./validation";
+import { isHt5074, isHt5075, isHt5101 } from "./validation";
+
+export const decodeH5074Values = (streamUpdate: string) => {
+    // inspired by https://github.com/Home-Is-Where-You-Hang-Your-Hack/sensor.goveetemp_bt_hci/blob/master/custom_components/govee_ble_hci/govee_advertisement.py#L116
+    const temp_lsb = streamUpdate
+        .substring(8, 10)
+        .concat(streamUpdate.substring(6, 8));
+    const hum_lsb = streamUpdate
+        .substring(12, 14)
+        .concat(streamUpdate.substring(10, 12));
+
+    const tempInC = twos_complement(parseInt(temp_lsb, 16)) / 100;
+    const tempInF = (tempInC * 9) / 5 + 32;
+    const humidity = parseInt(hum_lsb, 16) / 100;
+
+    const battery = parseInt(streamUpdate.substring(14, 16), 16);
+
+    return {
+        battery,
+        humidity,
+        tempInC,
+        tempInF,
+    };
+};
 
 export const decodeH5075Values = (streamUpdate: string) => {
     // TODO would be great to find a way to validate
@@ -35,7 +58,23 @@ export const decodeH5101Values = (streamUpdate: string) => {
 };
 
 export const decodeAny = (streamUpdate: string) => {
-    return isHt5075(streamUpdate)
-        ? decodeH5075Values(streamUpdate)
-        : decodeH5101Values(streamUpdate);
+    if (isHt5074(streamUpdate)) {
+        return decodeH5074Values(streamUpdate);
+    }
+    if (isHt5075(streamUpdate)) {
+        return decodeH5075Values(streamUpdate);
+    }
+    if (isHt5101(streamUpdate)) {
+        return decodeH5101Values(streamUpdate);
+    }
+
+    throw new Error("Unsupported stream update: " + streamUpdate);
 };
+
+function twos_complement(n: number, w: number = 16): number {
+    // Adapted from: https://stackoverflow.com/a/33716541.
+    if (n & (1 << (w - 1))) {
+        n = n - (1 << w);
+    }
+    return n;
+}

@@ -27,4 +27,14 @@ export const validationMatrix: {
         mfgData: "0100010103165564",
         address: "a4:c1:38:e2:xx:xx",
     },
+    {
+        deviceModel: "h5074",
+        mfgData: "88ec000902cd156402",
+        address: "",
+    },
+    {
+        deviceModel: "h5074",
+        mfgData: "88ec008b0436156402",
+        address: "e3:37:3c:c0:xx:xx",
+    },
 ];
