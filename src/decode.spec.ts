@@ -22,8 +22,8 @@ it("should decode H5074 values", () => {
     expect(reading).toMatchObject(expectedReading);
 });
 
-it("should decode H5075 values", () => {
-    const hex = "88ec000368d15800";
+it.only("should decode H5075 values", () => {
+    const hex = "88ec00834a130000";
     const expectedReading = {
         battery: 88,
         humidity: 44.1,

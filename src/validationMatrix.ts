@@ -18,6 +18,11 @@ export const validationMatrix: {
         address: "a4:c1:38:xx:xx:xx",
     },
     {
+        deviceModel: "h5075",
+        mfgData: "88ec00834a130000",
+        address: "a4:c1:38:xx:xx:xx",
+    },
+    {
         deviceModel: "h5072",
         mfgData: "88ec000309295f00",
         address: "a4:c1:38:45:xx:xx",
