@@ -3,6 +3,8 @@ import noble from "@abandonware/noble";
 const govee_bt_mac_allowlist = [
     "a4:c1:38", // Telink Semiconductor (Taipei) Co. Ltd.
     "e3:37:3c", // unknown manufacturer
+    "e0:12:1c", // unknown manufacturer
+    "e0:12:1d", // unknown manufacturer
 ];
 
 const h5074_uuid_rev = "88ec";
