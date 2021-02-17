@@ -1,10 +1,5 @@
 import noble from "@abandonware/noble";
 
-const govee_bt_mac_allowlist = [
-    "a4:c1:38", // Telink Semiconductor (Taipei) Co. Ltd.
-    "e3:37:3c", // unknown manufacturer
-];
-
 const h5074_uuid_rev = "88ec";
 const h5075_uuid_rev = "88ec";
 const h5101_uuid_rev = "0100";
@@ -19,20 +14,6 @@ export const isValidPeripheral = (peripheral: noble.Peripheral) => {
     const { address, advertisement } = peripheral;
 
     if (!advertisement || !advertisement.manufacturerData) {
-        return false;
-    }
-
-    if (
-        address &&
-        !govee_bt_mac_allowlist.some((x) => {
-            const prefix = x.replace(/:/g, "");
-            const mac = address
-                .toLowerCase()
-                .replace(/:/g, "")
-                .replace(/-/g, "");
-            return mac.startsWith(prefix);
-        })
-    ) {
         return false;
     }
 
