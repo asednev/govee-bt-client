@@ -2,6 +2,7 @@ import {
     decodeH5074Values,
     decodeH5075Values,
     decodeH5101Values,
+    decodeH5179Values,
     decodeAny,
 } from "./decode";
 import { validationMatrix } from "./validationMatrix";
@@ -45,7 +46,17 @@ it("should decode H5101 values", () => {
     const reading = decodeH5101Values(hex);
     expect(reading).toMatchObject(expectedReading);
 });
-
+it("should decode H5179 values", () => {
+    const hex = "0188ec0001012e09740e64";
+    const expectedReading = {
+        battery: 100,
+        humidity: 37,
+        tempInC: 24.2,
+        tempInF: 75.56,
+    };
+    const reading = decodeH5179Values(hex);
+    expect(reading).toMatchObject(expectedReading);
+});
 describe("test matrix", () => {
     test("decode from any supported device", () => {
         validationMatrix.forEach((x) => {

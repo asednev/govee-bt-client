@@ -9,6 +9,7 @@ Supported devices:
 - H5075
 - H5101
 - H5102
+- H5179
 ## Installation
 
 `npm install govee-bt-client`
