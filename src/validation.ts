@@ -10,8 +10,8 @@ export const isHt5074 = (hex: string) =>
 export const isHt5075 = (hex: string) =>
     hex.includes(h5075_uuid_rev) && hex.length == 16; // Govee H5072/H5075
 export const isHt5101 = (hex: string) => hex.includes(h5101_uuid_rev); // Govee H5101/H5102
-
-export const isHt5179 = (hex: string) => hex.includes(h5179_uuid_rev) && hex.length == 22; // Govee H5179
+export const isHt5179 = (hex: string) =>
+    hex.includes(h5179_uuid_rev) && hex.length == 22; // Govee H5179
 
 export const isValidPeripheral = (peripheral: noble.Peripheral) => {
     const { address, advertisement } = peripheral;
