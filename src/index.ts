@@ -10,7 +10,9 @@ const h5101_uuid = "0001";
 
 let DEBUG = false;
 
-let currentCallback: undefined | ((reading: GoveeReading) => void);
+let discoverCallback: undefined | ((reading: GoveeReading) => void);
+let scanStartCallback: undefined | Function;
+let scanStopCallback: undefined | Function;
 
 noble.on("discover", async (peripheral) => {
     const { id, uuid, address, state, rssi, advertisement } = peripheral;
@@ -50,8 +52,26 @@ noble.on("discover", async (peripheral) => {
         rssi,
     };
 
-    if (currentCallback) {
-        currentCallback(current);
+    if (discoverCallback) {
+        discoverCallback(current);
+    }
+});
+
+noble.on("scanStart", () => {
+    if (DEBUG) {
+        console.log("scanStart");
+    }
+    if (scanStartCallback) {
+        scanStartCallback();
+    }
+});
+
+noble.on("scanStop", () => {
+    if (DEBUG) {
+        console.log("scanStop");
+    }
+    if (scanStopCallback) {
+        scanStopCallback();
     }
 });
 
@@ -62,7 +82,7 @@ export const debug = (on: boolean) => {
 export const startDiscovery = async (
     callback: (reading: GoveeReading) => void
 ) => {
-    currentCallback = callback;
+    discoverCallback = callback;
 
     await noble.startScanningAsync([h5075_uuid, h5101_uuid], true);
 };
@@ -70,7 +90,17 @@ export const startDiscovery = async (
 export const stopDiscovery = async () => {
     await noble.stopScanningAsync();
 
-    currentCallback = undefined;
+    discoverCallback = undefined;
+    scanStartCallback = undefined;
+    scanStopCallback = undefined;
+};
+
+export const registerScanStart = (callback: Function) => {
+    scanStartCallback = callback;
+};
+
+export const registarScanStop = (callback: Function) => {
+    scanStopCallback = callback;
 };
 
 export * from "./goveeReading";
