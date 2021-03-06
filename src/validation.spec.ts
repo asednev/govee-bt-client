@@ -1,4 +1,10 @@
-import { isHt5074, isHt5075, isHt5101, isValidPeripheral } from "./validation";
+import {
+    isHt5074,
+    isHt5075,
+    isHt5101,
+    isHt5179,
+    isValidPeripheral,
+} from "./validation";
 import { validationMatrix } from "./validationMatrix";
 
 describe("match fingerprint", () => {
@@ -16,6 +22,8 @@ describe("match fingerprint", () => {
     });
     it("should pass as h5101", () =>
         expect(isHt5101("0100010103165564")).toBeTruthy());
+    it("should pass as h5179", () =>
+        expect(isHt5179("0188ec0001012e09740e64")).toBeTruthy());
 });
 
 describe("validate peripheral", () => {
