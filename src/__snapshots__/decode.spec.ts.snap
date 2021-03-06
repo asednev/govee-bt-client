@@ -62,3 +62,12 @@ Object {
   "tempInF": 52.934,
 }
 `;
+
+exports[`test matrix decode from any supported device 8`] = `
+Object {
+  "battery": 100,
+  "humidity": 37,
+  "tempInC": 24.2,
+  "tempInF": 75.56,
+}
+`;
