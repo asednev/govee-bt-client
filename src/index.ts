@@ -99,7 +99,7 @@ export const registerScanStart = (callback: Function) => {
     scanStartCallback = callback;
 };
 
-export const registarScanStop = (callback: Function) => {
+export const registerScanStop = (callback: Function) => {
     scanStopCallback = callback;
 };
 

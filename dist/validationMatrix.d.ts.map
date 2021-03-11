@@ -1,0 +1,1 @@
+{"version":3,"file":"validationMatrix.d.ts","sourceRoot":"","sources":["../src/validationMatrix.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,iBAAiB,CAAC;AAEhD,eAAO,MAAM,gBAAgB,EAAE;IAC3B,WAAW,EAAE,MAAM,CAAC;IACpB,OAAO,EAAE,MAAM,CAAC;IAChB,OAAO,EAAE,MAAM,CAAC;IAChB,aAAa,CAAC,EAAE,aAAa,CAAC;CACjC,EAqCA,CAAC"}
