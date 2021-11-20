@@ -26,9 +26,19 @@ export const decodeH5074Values = (streamUpdate: string) => {
 export const decodeH5075Values = (streamUpdate: string) => {
     // TODO would be great to find a way to validate
 
-    const encodedData = parseInt(streamUpdate.substring(6, 12), 16);
+    let encodedData = parseInt(streamUpdate.substring(6, 12), 16);
+
+    let tempIsNegative = false;
+    if (encodedData & 0x800000) {
+        tempIsNegative = true;
+        encodedData = encodedData ^ 0x800000;
+    }
+
     const battery = parseInt(streamUpdate.substring(12, 14), 16);
-    const tempInC = encodedData / 10000;
+    let tempInC = encodedData / 10000;
+    if (tempIsNegative) {
+        tempInC = 0 - tempInC;
+    }
     const tempInF = (tempInC * 9) / 5 + 32;
     const humidity = (encodedData % 1000) / 10;
 
