@@ -47,4 +47,5 @@ Credits and thanks to
 
 * [Thrilleratplay/GoveeWatcher](https://github.com/Thrilleratplay/GoveeWatcher) for explanation and examples of how to decode advertisement data for Govee H5075.
 * [Home-Is-Where-You-Hang-Your-Hack/sensor.goveetemp_bt_hci](https://github.com/Home-Is-Where-You-Hang-Your-Hack/sensor.goveetemp_bt_hci) for explanation and examples of advertisement data for various Govee devices.
-* [@abandonware/noble](https://github.com/abandonware/noble) for a great BLE library for node
+* [@abandonware/noble](https://github.com/abandonware/noble) for a great BLE library for node.
+* [andrewjbates](https://github.com/andrewjbates) and [eharris](https://github.com/eharris) for [triaging](https://github.com/asednev/homebridge-plugin-govee/issues/16) and developing an [algorithm](https://github.com/Thrilleratplay/GoveeWatcher/issues/2) to parse H5075 data below 0 degrees Celsius.
