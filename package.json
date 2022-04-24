@@ -28,7 +28,7 @@
     "Client"
   ],
   "dependencies": {
-    "@abandonware/noble": "1.9.2-11",
+    "@abandonware/noble": "^1.9.2-15",
     "typescript": "4.0.2"
   },
   "devDependencies": {
