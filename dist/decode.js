@@ -44,6 +44,7 @@ exports.decodeH5075Values = (streamUpdate) => {
     };
 };
 exports.decodeH5101Values = (streamUpdate) => {
+    // TODO would be great to find a way to validate
     let encodedData = parseInt(streamUpdate.substring(8, 14), 16);
     let tempIsNegative = false;
     if (encodedData & 0x800000) {

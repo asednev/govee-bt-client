@@ -50,6 +50,17 @@ it("should decode H5101 values", () => {
     const reading = decode_1.decodeH5101Values(hex);
     expect(reading).toMatchObject(expectedReading);
 });
+it("should decode H5101 values when it's below freezing", () => {
+    const hex = "010001018155ee34";
+    const expectedReading = {
+        battery: 52,
+        humidity: 53.4,
+        tempInC: -8.7534,
+        tempInF: 16.24388,
+    };
+    const reading = decode_1.decodeH5101Values(hex);
+    expect(reading).toMatchObject(expectedReading);
+});
 it("should decode H5179 values", () => {
     const hex = "0188ec0001012e09740e64";
     const expectedReading = {
