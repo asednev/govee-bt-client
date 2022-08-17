@@ -7,6 +7,7 @@ Supported devices:
 - H5072
 - H5074
 - H5075
+- H5100
 - H5101
 - H5102
 - H5179
