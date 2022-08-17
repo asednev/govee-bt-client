@@ -39,13 +39,22 @@ Object {
 exports[`test matrix decode from any supported device 5`] = `
 Object {
   "battery": 100,
+  "humidity": 31,
+  "tempInC": 35.031,
+  "tempInF": 95.0558,
+}
+`;
+
+exports[`test matrix decode from any supported device 6`] = `
+Object {
+  "battery": 100,
   "humidity": 32.5,
   "tempInC": 20.2325,
   "tempInF": 68.41850000000001,
 }
 `;
 
-exports[`test matrix decode from any supported device 6`] = `
+exports[`test matrix decode from any supported device 7`] = `
 Object {
   "battery": 100,
   "humidity": 55.81,
@@ -54,7 +63,7 @@ Object {
 }
 `;
 
-exports[`test matrix decode from any supported device 7`] = `
+exports[`test matrix decode from any supported device 8`] = `
 Object {
   "battery": 100,
   "humidity": 54.3,
@@ -63,7 +72,7 @@ Object {
 }
 `;
 
-exports[`test matrix decode from any supported device 8`] = `
+exports[`test matrix decode from any supported device 9`] = `
 Object {
   "battery": 100,
   "humidity": 37,
